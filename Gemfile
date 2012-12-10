@@ -6,7 +6,8 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'devise'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,7 +19,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
+  gem 'zurb-foundation'
+  gem "haml"
 end
+
+gem 'haml-rails', :group => :development 
 
 gem 'jquery-rails'
 

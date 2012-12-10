@@ -1,0 +1,7 @@
+.row
+	.columns.twelve
+		%h2 Editing status
+		= render 'form'
+		= link_to 'Show', @status
+		%span.divide /
+		\#{link_to 'Back', statuses_path}

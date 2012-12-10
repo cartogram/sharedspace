@@ -1,0 +1,37 @@
+!!!
+%html
+	%head
+		%title Sharedspace
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body
+		.contain-to-grid
+			%nav.top-bar
+				%ul#nav-name
+					%li.name
+						%h1
+							%a{:href => "/"}
+								Shared Space
+					%li.toggle-topbar
+						%a{:href => "#"}
+				%section
+					%ul.right#nav-user
+						- if user_signed_in?
+							%li.has-dropdown.user
+								= link_to "me", "#"
+								%ul.dropdown
+									%li= link_to "Profile", edit_user_registration_path
+									%li= link_to "Logout", destroy_user_session_path, method: :delete
+						- else
+							%li
+								= link_to "Sign Up", new_user_registration_path
+							%li
+								= link_to "Login", new_user_session_path
+
+	.container
+		%p.notice
+			= notice
+		%div.alert-box
+			= alert
+		= yield

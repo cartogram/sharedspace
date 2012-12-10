@@ -1,0 +1,17 @@
+.row
+	.columns.twelve
+		%h2 Listing statuses
+.row
+	.columns.twelve
+		%ul.no-bullet
+			- @statuses.each do |status|
+				%li
+					%p 
+						=status.content
+						%span.divider /
+						=link_to time_ago_in_words(status.created_at) + ' ago', status
+						%span.divider /
+						=link_to 'delete', status, method: :delete, data: { confirm: 'Are you sure?' }
+						%span.divider /
+						=link_to 'edit', edit_status_path(status)
+			= link_to 'New Status', new_status_path, :class => "button secondary radius"

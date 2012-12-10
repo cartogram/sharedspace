@@ -1,0 +1,18 @@
+= simple_form_for(@status) do |f|
+	- if @status.errors.any?
+		#error_explanation
+			%h2
+				= pluralize(@status.errors.count, "error")
+				prohibited this status from being saved:
+			%ul
+				- @status.errors.full_messages.each do |msg|
+					%li= msg
+	.row
+		.columns.twelve
+			= f.input :user_id, collection: User.all, label_method: :full_name
+	.row
+		.columns.twelve
+			= f.input :content		
+	.row
+		.columns.twelve
+			= f.button :submit, :class => "button radius secondary"
